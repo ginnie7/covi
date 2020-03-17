@@ -1,6 +1,7 @@
-import Stats from '../components/Stats';
-import CountrySelector from '../components/CountrySelector';
-import { createGlobalStyle } from 'styled-components';
+import React from "react";
+import Stats from "./components/Stats";
+import CountrySelector from "./components/CountrySelector";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -9,7 +10,7 @@ html {
 }
 `;
 
-export default function IndexPage() {
+export default function App() {
   return (
     <div>
       <GlobalStyle />
