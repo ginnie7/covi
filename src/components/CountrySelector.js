@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const CustomSelect = styled.select`
   margin-bottom: 1rem;
+  max-width: 100%;
   padding: 0.3rem 0.8rem;
   font-size: 1rem;
   border: 1px solid #ccc;
