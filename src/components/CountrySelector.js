@@ -27,6 +27,17 @@ export default function CountrySelector() {
   const [selectedCountry, setSelectedCountry] = useState("Spain");
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
+
+  // Endpoint's structure changed, adapting
+  let oldStructure = {
+    countries: {},
+    iso3: {}
+  };
+  for (let country of countries.countries) {
+    oldStructure.countries[country.name] = country.iso2;
+    oldStructure.iso3[country.iso2] = country.iso3;
+  }
+
   return (
     <div>
       <h2>By Country: {selectedCountry}</h2>
@@ -34,8 +45,8 @@ export default function CountrySelector() {
         defaultValue={"ESP"}
         onChange={e => setSelectedCountry(e.target.value)}
       >
-        {Object.entries(countries.countries).map(([country, code]) => (
-          <option key={country} value={countries.iso3[code]}>
+        {Object.entries(oldStructure.countries).map(([country, code]) => (
+          <option key={country} value={oldStructure.iso3[code]}>
             {country}
           </option>
         ))}
